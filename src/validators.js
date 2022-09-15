@@ -1,5 +1,4 @@
 import Joi from "joi";
-
 const validator = (schema) => (payload) => schema.validate(payload);
 
 const signUpSchema = Joi.object({
@@ -13,3 +12,7 @@ const signInSchema = Joi.object({
   email: Joi.string().required(),
   password: Joi.string().required(),
 });
+
+const signupValidation = validator(signUpSchema);
+
+export { signupValidation };
