@@ -14,5 +14,6 @@ const signInSchema = Joi.object({
 });
 
 const signupValidation = validator(signUpSchema);
+const signinValidation = validator(signInSchema);
 
-export { signupValidation };
+export { signupValidation, signinValidation };
