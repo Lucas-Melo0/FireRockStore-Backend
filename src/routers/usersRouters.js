@@ -6,8 +6,8 @@ import { loginValidator } from "../middlewares/loginValidationMiddleWare.js";
 
 const router = express.Router();
 
+router.post("/", listHomePageProducts);
 router.post("/signup", signupValidator, userSignup);
 router.post("/login", loginValidator, userLogin);
-router.get("/", listHomePageProducts);
 
 export default router;
