@@ -12,4 +12,14 @@ async function listHomePageProducts(req, res) {
   }
 }
 
-export { listHomePageProducts };
+async function productInsertion(req, res) {
+  try {
+    await db.collection("products").insertOne(req.body);
+    return res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+}
+
+export { listHomePageProducts, productInsertion };
