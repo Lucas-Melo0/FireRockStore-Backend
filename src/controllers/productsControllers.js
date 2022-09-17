@@ -5,7 +5,7 @@ async function listHomePageProducts(req, res) {
     const teste = await db.collection("users").find().toArray();
     console.log(teste);
 
-    res.status(200).send("shhhhh");
+    res.send(teste);
   } catch (error) {
     res.sendStatus(500);
   }
@@ -13,13 +13,13 @@ async function listHomePageProducts(req, res) {
 
 async function productInsertion(req, res) {
   try {
-    const vision = db.collection("teste3").insertMany(req.body);
+    const vision = db.collection("teste3").insertOne(req.body);
 
     console.log(vision);
     return res.status(200).send("hiiiii");
   } catch (error) {
     console.log(error);
-    res.sendStatus(500);
+    res.status(500).send("grrrrrrrr");
   }
 }
 
