@@ -15,8 +15,9 @@ const signInSchema = Joi.object({
 
 const productSchema = Joi.object({
   name: Joi.string().required(),
-  price: Joi.number().required(),
+  price: Joi.string().required(),
   image: Joi.string().required(),
+  id: Joi.string().required(),
 });
 
 const signupValidation = validator(signUpSchema);
