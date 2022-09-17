@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.post("/signup", signupValidator, userSignup);
 router.post("/login", loginValidator, userLogin);
-router.get("/", listHomePageProducts);
+router.post("/", listHomePageProducts);
 router.post("/", productValidator, productInsertion);
 
 export default router;
