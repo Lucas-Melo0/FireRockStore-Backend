@@ -6,7 +6,7 @@ async function listHomePageProducts(req, res) {
     const sera = teste.map((i) => i.products);
     console.log(sera);
 
-    res.sendStatus(200);
+    res.send(teste);
   } catch (error) {
     res.sendStatus(500);
   }
