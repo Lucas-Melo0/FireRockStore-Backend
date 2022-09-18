@@ -2,10 +2,19 @@ import { db } from "../database/db.js";
 
 async function listHomePageProducts(req, res) {
   try {
-    const teste = await db.collection("users").find().toArray();
-    console.log(teste);
+    const products = await db.collection("products").find().toArray();
+    console.log(products);
+    res.send(products);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+}
 
-    res.status(200).send("shhhhh");
+async function showProductList(req, res) {
+  try {
+    const products = await db.collection("products").find().toArray();
+
+    res.send(products);
   } catch (error) {
     res.sendStatus(500);
   }
@@ -13,14 +22,14 @@ async function listHomePageProducts(req, res) {
 
 async function productInsertion(req, res) {
   try {
-    const vision = db.collection("teste3").insertMany(req.body);
+    const vision = db.collection("products").insertOne(req.body);
 
     console.log(vision);
     return res.status(200).send("hiiiii");
   } catch (error) {
     console.log(error);
-    res.sendStatus(500);
+    res.status(500).send("grrrrrrrr");
   }
 }
 
-export { listHomePageProducts, productInsertion };
+export { listHomePageProducts, productInsertion, showProductList };
