@@ -22,13 +22,13 @@ async function showProductList(req, res) {
 
 async function productInsertion(req, res) {
   try {
-    const vision = db.collection("products").insertOne(req.body);
+    const products = db.collection("products").insertMany(req.body);
 
-    console.log(vision);
-    return res.status(200).send("hiiiii");
+    console.log(products);
+    return res.status(200).send("it worked!");
   } catch (error) {
     console.log(error);
-    res.status(500).send("grrrrrrrr");
+    res.status(500).send("grrr");
   }
 }
 
