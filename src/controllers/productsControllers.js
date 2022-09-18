@@ -10,15 +10,11 @@ async function listHomePageProducts(req, res) {
   }
 }
 
-<<<<<<< HEAD
-    res.send(teste);
-=======
 async function showProductList(req, res) {
   try {
     const products = await db.collection("products").find().toArray();
 
     res.send(products);
->>>>>>> 3824a4b2ff5a18bf1cd220e64c802d4f9cf11c49
   } catch (error) {
     res.sendStatus(500);
   }
