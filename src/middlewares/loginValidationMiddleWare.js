@@ -1,7 +1,7 @@
 import { signinValidation } from "../validators.js";
 
 const loginValidator = (req, res, next) => {
-  const { error } = signinValidation(req.body);
+  const { error } = productValidation(req.body);
   if (error) {
     return res.sendStatus(400);
   }
