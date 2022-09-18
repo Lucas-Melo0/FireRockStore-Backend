@@ -2,6 +2,7 @@ import express from "express";
 import {
   listHomePageProducts,
   productInsertion,
+  showProductList,
 } from "../controllers/productsControllers.js";
 import { userLogin, userSignup } from "../controllers/usersControllers.js";
 import { signupValidator } from "../middlewares/signupValidationMiddleware.js";
@@ -12,7 +13,8 @@ const router = express.Router();
 
 router.post("/signup", signupValidator, userSignup);
 router.post("/login", loginValidator, userLogin);
-router.get("/", listHomePageProducts);
 router.post("/", productValidator, productInsertion);
+router.get("/", listHomePageProducts);
+router.get("/productlist", showProductList);
 
 export default router;
