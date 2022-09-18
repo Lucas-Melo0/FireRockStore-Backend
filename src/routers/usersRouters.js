@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.post("/signup", signupValidator, userSignup);
 router.post("/login", loginValidator, userLogin);
-router.post("/", productValidator, productInsertion);
+router.post("/", productInsertion);
 router.get("/", listHomePageProducts);
 router.get("/productlist", showProductList);
 
