@@ -13,7 +13,15 @@ const signInSchema = Joi.object({
   password: Joi.string().required(),
 });
 
+const orderSchema = Joi.object({
+  token: Joi.string().required(),
+  price: Joi.number().required(),
+  category: Joi.string().required(),
+  id: Joi.string().required(),
+});
+
 const signupValidation = validator(signUpSchema);
 const signinValidation = validator(signInSchema);
+const orderValidation = validator(orderSchema);
 
-export { signupValidation, signinValidation };
+export { signupValidation, signinValidation, orderValidation };
