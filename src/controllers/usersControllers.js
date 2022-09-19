@@ -47,4 +47,24 @@ const userLogin = async (req, res) => {
   }
 };
 
-export { userSignup, userLogin };
+const orderDetails = async (req, res) => {
+  try {
+    const { token, price, category, id } = req.body;
+    const isActiveUser = await db
+      .collection("sessions")
+      .findOne({ token: token });
+
+    if (!isActiveUser) return res.sendStatus(404);
+
+    const { userId } = isActiveUser;
+    await db
+      .collection("orders_details")
+      .insertOne({ price, category, id, userId });
+
+    return res.sendStatus(200);
+  } catch (error) {
+    return res.sendStatus(500);
+  }
+};
+
+export { userSignup, userLogin, orderDetails };
