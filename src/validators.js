@@ -15,9 +15,8 @@ const signInSchema = Joi.object({
 
 const orderSchema = Joi.object({
   token: Joi.string().required(),
-  price: Joi.number().required(),
-  category: Joi.string().required(),
-  id: Joi.string().required(),
+  category: Joi.required(),
+  id: Joi.required(),
 });
 
 const signupValidation = validator(signUpSchema);

@@ -49,7 +49,7 @@ const userLogin = async (req, res) => {
 
 const orderDetails = async (req, res) => {
   try {
-    const { token, price, category, id } = req.body;
+    const { token, category, id } = req.body;
     const isActiveUser = await db
       .collection("sessions")
       .findOne({ token: token });
@@ -57,9 +57,7 @@ const orderDetails = async (req, res) => {
     if (!isActiveUser) return res.sendStatus(404);
 
     const { userId } = isActiveUser;
-    await db
-      .collection("orders_details")
-      .insertOne({ price, category, id, userId });
+    await db.collection("orders_details").insertOne({ category, id, userId });
 
     return res.sendStatus(200);
   } catch (error) {
