@@ -13,16 +13,16 @@ const signInSchema = Joi.object({
   password: Joi.string().required(),
 });
 
-const productSchema = Joi.object({
-  name: Joi.string().required(),
-  price: Joi.number().required(),
-  image: Joi.string().required(),
-  id: Joi.string().required(),
-  category: Joi.string().required(),
-});
+// const productSchema = Joi.object({
+//   name: Joi.string().required(),
+//   price: Joi.number().required(),
+//   image: Joi.string().required(),
+//   id: Joi.string().required(),
+//   category: Joi.string().required(),
+// });
 
 const signupValidation = validator(signUpSchema);
 const signinValidation = validator(signInSchema);
-const productValidation = validator(productSchema);
+//const productValidation = validator(productSchema);
 
-export { signupValidation, signinValidation, productValidation };
+export { signupValidation, signinValidation };

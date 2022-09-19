@@ -22,14 +22,11 @@ async function showProductList(req, res) {
 
 async function productInsertion(req, res) {
   try {
-
     await db.collection("products").insertMany(req.body);
 
-    return res.status(200).send("hiiiii");
-
+    return res.status(200).send("it worked!");
   } catch (error) {
-    console.log(error);
-    res.status(500).send("grrr");
+    res.status(500).send("it didn't work!");
   }
 }
 
